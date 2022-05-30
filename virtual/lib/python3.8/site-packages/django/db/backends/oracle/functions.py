@@ -2,7 +2,7 @@ from django.db.models import DecimalField, DurationField, Func
 
 
 class IntervalToSeconds(Func):
-    function = ''
+    function = ""
     template = """
     EXTRACT(day from %(expressions)s) * 86400 +
     EXTRACT(hour from %(expressions)s) * 3600 +
@@ -10,15 +10,17 @@ class IntervalToSeconds(Func):
     EXTRACT(second from %(expressions)s)
     """
 
-    def __init__(self, expression, **extra):
-        output_field = extra.pop('output_field', DecimalField())
-        super(IntervalToSeconds, self).__init__(expression, output_field=output_field, **extra)
+    def __init__(self, expression, *, output_field=None, **extra):
+        super().__init__(
+            expression, output_field=output_field or DecimalField(), **extra
+        )
 
 
 class SecondsToInterval(Func):
-    function = 'NUMTODSINTERVAL'
+    function = "NUMTODSINTERVAL"
     template = "%(function)s(%(expressions)s, 'SECOND')"
 
-    def __init__(self, expression, **extra):
-        output_field = extra.pop('output_field', DurationField())
-        super(SecondsToInterval, self).__init__(expression, output_field=output_field, **extra)
+    def __init__(self, expression, *, output_field=None, **extra):
+        super().__init__(
+            expression, output_field=output_field or DurationField(), **extra
+        )
