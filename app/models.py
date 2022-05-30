@@ -1,9 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-# Location model to enable us choose location
-
 
 class Location(models.Model):
     name = models.CharField(max_length=30)
@@ -71,15 +67,15 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls, search_term):
-        display = cls.objects.filter(category__name__icontains=search_term)
-        return display
+        app = cls.objects.filter(category__name__icontains=search_term)
+        return app
 
   
     @classmethod
     def filter_by_location(cls):
-        display = cls.objects.filter(
+        app = cls.objects.filter(
             location__name__icontains='Silicon Valley')
-        return display
+        return app
 
     class Meta:
         ordering = ['image_name']
