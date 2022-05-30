@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% block content %}
+{{block.super}}
+<div class="container">
+<h1 class="text-center text-info" style="margin-top:60px;">Find any home images you need</h1>
+{% for display_item in imagey %}
+<h2>{{display_item.image_name}}.</h2>
+<hr>
+{%if display_item.image%}
+<img style="width:500px; height:250px" src="{{display_item.image.url}}" class="img-responsive img-circle">
+{%endif%}
+{%endfor%}
+</div>
+
+{% endblock %}
