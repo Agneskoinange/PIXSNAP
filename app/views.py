@@ -11,3 +11,10 @@ def images(request):
     images = Image.objects.all()
     return render(request, 'images.html', {"images": images})
 
+def Silicon_Valley(request):
+    '''
+    function to display the location page
+    '''
+
+    images = Image.filter_by_location()
+    return render(request, 'Silicon Valley.html', {"imagey": images},)
