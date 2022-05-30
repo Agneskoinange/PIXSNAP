@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% block content %}
+{{block.super}}
+<div class="container" style="margin-top:60px;">
+  <!--looping through displays-->
+  {% for display_item in images %}
+
+<div class="row center-block">
+  <!-- displaying all images -->
+
+
+  <div class="col-md-4 col-md-4 col-md-4">
+    <!-- <p>{{display_item.name|upper}}</p>
+    <img style="width:750px; height:500px"src="{{display_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image"> -->
+    <div class="uk-text-center">
+       <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+           <img style="width:500px; height:250px"src="{{display_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
+           <div class="uk-position-center">
+               <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{display_item.image_name}}</h4></div>
+               <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{display_item.category}}</h4></div>
+           </div>
+       </div>
+       <p class="uk-margin-small-top">{{display_item.location}}</p>
+       <a class="uk-margin-small-top bbtn-red" href="image/{{display_item.id}}">More Details</a>
+   </div>
+
+  </div>
+  {% empty %}
+  <div class="row">
+    <h1 class="text-center text-info">There No Display Items</h1>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
