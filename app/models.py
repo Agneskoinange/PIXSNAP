@@ -56,8 +56,8 @@ class Category(models.Model):
 class Image(models.Model):
     image_name = models.CharField(max_length=20)
     image_description = models.CharField(max_length=30)
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='photos/', null="True", blank="True")
 
     def __str__(self):
