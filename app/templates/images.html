@@ -6,10 +6,6 @@
   <!--looping through displays-->
 
   {% if images %}
-  url = app_item.image.url
-  {% else %}
-  url = app_item.image.url
-  {% endif %}
 
   {% for app_item in images %}
 
@@ -18,7 +14,7 @@
     
     <div class="uk-text-center">
        <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
-           <img style="width:500px; height:250px"src="{{app_item.images.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
+           <img style="width:500px; height:250px"src="{{app_item.photos.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
            <div class="uk-position-center">
                <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{app_item.image_name}}</h4></div>
                <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{app_item.category}}</h4></div>
@@ -34,6 +30,36 @@
     <h1 class="text-center text-info">There no Display Items</h1>
   </div>
   {% endfor %}
+  {% endif %}
+
+  <button class="trigger">Modal!</button>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">{{image.html}}</span>
+            <h1>Hello, I am a modal!</h1>
+        </div>
+    </div>
+
+  <script>
+    var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+	
+  </script>
 </div>
 
 {% endblock %}
