@@ -13,7 +13,7 @@
 
         <!--Display app categories images  -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <img src="{{item.image.url}}" class="img-responsive" alt="Image">
+          <img src="{{item.images.url}}" class="img-responsive" alt="Image">
         </div>
 
       </div>
@@ -21,3 +21,6 @@
   </div>
 
 {% endblock %}
+
+input type="text" id="myInput" value="{{item.image.url}}" class="btn btn-outline-primary form-control">
+        <!-- <button onclick="myFunction()">Copy Link</button> -->
