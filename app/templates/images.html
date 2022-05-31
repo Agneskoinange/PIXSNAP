@@ -4,12 +4,16 @@
 {{block.super}}
 <div class="container" style="margin-top:60px;">
   <!--looping through displays-->
+
+  {% if images %}
+  url = app_item.image.url
+  {% else %}
+  url = app_item.image.url
+  {% endif %}
+
   {% for app_item in images %}
 
 <div class="row center-block">
-  <!-- displaying all images -->
-
-
   <div class="col-md-4 col-md-4 col-md-4">
     
     <div class="uk-text-center">

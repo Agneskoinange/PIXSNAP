@@ -33,7 +33,7 @@ View photos based on the location they were taken.
 > Install Python Version --3
 > Install gunicorn in (virtual) -python3 -m pip install gunicorn
 > Install the Heroku Cli
-> $ git clone 
+> $ git clone git@github.com:Agneskoinange/PIXSNAP.git
 > $ Python3 -m venv Virtual
 > $ Source virtual/bin/activate
 
