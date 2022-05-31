@@ -21,7 +21,7 @@ ORDER_CHOICES = (
     ('11', 'Vegetation'),
     ('12', 'Trees'),
     ('13', 'Nature'),
-    ('14', 'Abstract'),
+    ('14', 'Fashion'),
     ('15', 'IT & Computers'),
     ('16', 'Animals'),
     ('17', 'Illustrations'),
