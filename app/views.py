@@ -9,7 +9,9 @@ def images(request):
     function to display the index page
     '''
     images = Image.objects.all()
+    print (images)
     return render(request, 'images.html', {"images": images})
+
 
 def Silicon_Valley(request):
     '''
@@ -17,7 +19,7 @@ def Silicon_Valley(request):
     '''
 
     images = Image.filter_by_location()
-    return render(request, 'Silicon Valley.html', {"imagey": images},)
+    return render(request, 'Silicon Valley.html', {"images": images},)
 
 def image(request, image_id):
 

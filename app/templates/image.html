@@ -1,6 +1,10 @@
 {%extends 'base.html'%} {% block content %}
 
+{% if image.image%}
+<img src="{{image.image.url}}" class="img-responsive img-thumbnail center-block img-circle" alt="">
+{%endif%}
 
+{% if image.image%}
 <div class="container" style="margin-top:60px;">
   <div class="card ovf-hidden">
 
@@ -32,10 +36,11 @@
         <button class="btn btn-warning" onclick="myFunction()">Copy Link </button>
         <hr>
       </div>
-      <!--/.Content-->
+     
     </div>
+    {%endif%}
 
-    <!--/.Card reveal-->
+   
   </div>
   <script>
 function myFunction() {

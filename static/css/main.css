@@ -1,0 +1,12 @@
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width:768px ) {  }
+  @media (min-width: 1250px) {  }
+  
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width:992px ) { }
+  
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width:1200px) { }
+  
+  /* landscape phones and smaller */
