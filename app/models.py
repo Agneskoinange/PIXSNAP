@@ -25,7 +25,7 @@ ORDER_CHOICES = (
     ('15', 'IT & Computers'),
     ('16', 'Animals'),
     ('17', 'Illustrations'),
-    ('18', 'Arts'),
+    ('18', 'City'),
     ('19', 'Business'),
     ('20', 'Industries'),
     ('21', 'Objects'),
@@ -79,3 +79,5 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['image_name']
+
+   
