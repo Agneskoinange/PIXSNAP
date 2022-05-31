@@ -5,11 +5,31 @@
 <div class="container" style="margin-top:60px;">
     <!--looping through displays-->
   {% if app_item.images %}
-  <img style="width:500px; height:250px"src="{{app_item.images.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
+  <img style="width:500px; height:250px"src="{{app_item.categories_images.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
   {%endif%}
 
   {% if  app_item.images %}
    {% for app_item in images %}
+
+   <div class="container" style="margin-top:60px;">
+    {% for app_item in news %}
+  
+      <div class="row">
+        <!-- displaying app categories -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="text-center"> {{ app_item.title }} </h2>
+        </div>
+
+        <!--Display app categories images  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{item.images.url}}" class="img-responsive" alt="Image">
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+
 
 
  <div class="row center-block">

@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.apps.AppConfig',
+    'app',
     'bootstrap3',
+     'cloudinary',
 
 ]
 
@@ -122,3 +126,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# adding config
+cloudinary.config( 
+  cloud_name = "dopvdc9a1", 
+  api_key = "392671715629863", 
+  api_secret = "arHv5ZYdNf0Z8biPJ7gCSuHKXxU" 
+)
