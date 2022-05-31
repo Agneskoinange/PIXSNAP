@@ -2,27 +2,28 @@
 {%extends 'base.html'%}
 {% block content %}
 {{block.super}}
+
+
 <div class="container" style="margin-top:60px;">
-  <!--looping through displays-->
-  {% for app_item in images %}
+
+  {% for item in images %}
 
 <div class="row center-block">
-  <!-- displaying all images -->
+ 
 
 
   <div class="col-md-4 col-md-4 col-md-4">
-    <!-- <p>{{display_item.name|upper}}</p>
-    <img style="width:750px; height:500px"src="{{display_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image"> -->
+   
     <div class="uk-text-center">
        <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
-           <img style="width:500px; height:250px"src="{{app_item.categories_image.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
+           <img style="width:500px; height:250px"src="{{item.images.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
            <div class="uk-position-center">
-               <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{app_item.image_name}}</h4></div>
-               <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{app_item.category}}</h4></div>
+               <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{item.image_name}}</h4></div>
+               <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{item.category}}</h4></div>
            </div>
        </div>
-       <p class="uk-margin-small-top">{{app_item.location}}</p>
-       <a class="uk-margin-small-top bbtn-red" href="image/{{app_item.id}}">See More</a>
+       <p class="uk-margin-small-top">{{item.location}}</p>
+       <a class="uk-margin-small-top bbtn-red" href="image/{{item.id}}">See More</a>
    </div>
 
   </div>
