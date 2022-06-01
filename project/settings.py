@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY='pixsnap1234'
 
 
-DATABASES = { 'default': dj_database_url.config() }
+DATABASES = { 'default': dj_database_url.config(default='postgres://nessie:agnes1234@localhost/pixsnap') }
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
