@@ -94,25 +94,8 @@ DATABASES = {
     }
 }
 
-if config('MODE')=="dev":
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': config('pixsnap'),
-           'USER': config('nessie'),
-           'PASSWORD': config('agnes1234'),
-           'HOST': config('127.0.0.1'),
-           'PORT': '',
-       }
-       
-   }
-# production
-else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
