@@ -40,12 +40,12 @@
    
   </div>
   <script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  document.execCommand("Copy");
-  alert("Copied the link: " + copyText.value);
-}
+  function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("Copied the link: " + copyText.value);
+  }
 </script>
 
   {% endblock %}

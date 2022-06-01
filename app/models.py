@@ -56,11 +56,11 @@ class Image(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, default='DEFAULT VALUE')
-    # image = models.ImageField(upload_to='photos/', null="True", blank="True", default='DAFAULT VALUE')
+    image = models.ImageField(upload_to='photos/', null="True", blank="True")
     image = CloudinaryField('image', default='DEFAULT VALUE')
 
     def __str__(self):
-        return self.image_name
+        return self.image_name 
 
     def save_image(self):
         self.save()
@@ -82,5 +82,10 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['image_name']
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
    
