@@ -17,7 +17,7 @@ if config('MODE')=="dev":
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
            'NAME': config('pixsnap'),
            'USER': config('nessie'),
-           'PASSWORD': config('aagnes1234'),
+           'PASSWORD': config('agnes1234'),
            'HOST': config('127.0.0.1'),
            'PORT': '',
        }
