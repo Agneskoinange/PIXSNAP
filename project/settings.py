@@ -6,7 +6,7 @@ import cloudinary.api
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
-from .database import *
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$y%)ix#56=-%j18ni$*p-7h_pjbxqpd^nb04zl19@v@!a=$dxo'
+# SECRET_KEY = 'django-insecure-$y%)ix#56=-%j18ni$*p-7h_pjbxqpd^nb04zl19@v@!a=$dxo'
+SECRET_KEY='pixsnap1234'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,10 +77,6 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -88,7 +85,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.db.backends.postgresql',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
