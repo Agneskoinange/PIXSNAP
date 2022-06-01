@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-$y%)ix#56=-%j18ni$*p-7h_pjbxqpd^nb04zl19@v@!a=$dxo'
 SECRET_KEY='pixsnap1234'
 
-DATABASES['default']=dj_database_url.config()
+
+DATABASES = { 'default': dj_database_url.config() }
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
