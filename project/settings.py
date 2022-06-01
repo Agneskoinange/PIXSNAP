@@ -10,34 +10,11 @@ from decouple import config,Csv
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-# development
-if config('MODE')=="dev":
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql',
-           'NAME': config('pixsnap'),
-           'USER': config('nessie'),
-           'PASSWORD': config('agnes1234'),
-           'HOST': config('127.0.0.1'),
-           'PORT': '',
-       }
-       
-   }
-# production
-else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
-
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
+# DATABASES['default'].update(db_from_env)
+DATABASES = { 'default': dj_database_url.config() }
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-"import django_heroku" 
-"django_heroku.settings(locals())"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,10 +89,30 @@ DATABASES = {
         'NAME': 'pixsnap',
         'USER': 'nessie',
         'PASSWORD': 'agnes1234',
+        'HOST': '127.0.0.1',
+        'PORT': '',
     }
 }
 
-
+if config('MODE')=="dev":
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('pixsnap'),
+           'USER': config('nessie'),
+           'PASSWORD': config('agnes1234'),
+           'HOST': config('127.0.0.1'),
+           'PORT': '',
+       }
+       
+   }
+# production
+else:
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
