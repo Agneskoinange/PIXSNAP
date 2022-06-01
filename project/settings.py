@@ -14,7 +14,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.db.backends.postgresql',
            'NAME': config('pixsnap'),
            'USER': config('nessie'),
            'PASSWORD': config('agnes1234'),
@@ -33,14 +33,6 @@ else:
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
-if ON_HEROKU:
-    DATABASE_URL = 'postgresql://<postgresql>'
-else:
-    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
